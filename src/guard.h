@@ -1,6 +1,3 @@
-
-
-
 #include <string>
 #include <math.h>
 #include "enviro.h"
@@ -17,9 +14,9 @@ namespace {
             // Similar to the camera, guards will detect if the player Agent
             // collides with them. This will emit an event that the player Agent
             // can watch for and respond to. 
-            // notice_collisions_with("playerAgent", [&](Event &e) {
-            //     emit(Event("caught"));
-            // });
+            notice_collisions_with("playerAgent", [&](Event &e) {
+                 emit(Event("caught"));
+            });
         }
         // In during() all its implemented is the forward motion and what to do when
         // the robot is about to hit a wall which is detected by the sensors.

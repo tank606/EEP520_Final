@@ -65,8 +65,8 @@
             "definition": "defs/knight.json",
             "style": { "fill": "orange", "stroke": "black" },
             "position": {
-                "x": -164, 
-                "y": -270, 
+                "x": -284, 
+                "y": 270, 
                 "theta": 0
             }
         },
@@ -138,34 +138,7 @@
                 "theta": 3.14
             }
         },
-        {
-            "definition": "defs/guard.json",
-            "style": { "fill": "blue", "stroke": "black" },
-            "position": {
-                "x": 364, 
-                "y": -260, 
-                "theta": 3.14
-            }
-        },
-        {
-            "definition": "defs/guard.json",
-            "style": { "fill": "blue", "stroke": "black" },
-            "position": {
-                "x": 0, 
-                "y": -190, 
-                "theta": 3.14
-            }
-        },
 
-        {
-            "definition": "defs/guard.json",
-            "style": { "fill": "blue", "stroke": "black" },
-            "position": {
-                "x": 265, 
-                "y": 20,
-                "theta": 3.14
-            }
-        },
 
 
 

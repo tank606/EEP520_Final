@@ -1,6 +1,3 @@
-#ifndef __GHOST_AGENT__H
-#define __GHOST_AGENT__H 
-
 #include "enviro.h"
 
 using namespace enviro;
@@ -13,6 +10,9 @@ class GhostController : public Process, public AgentInterface {
     void init() {
         prevent_rotation();
         notice_collisions_with("Bumper", [&](Event &e) {
+        
+              vx = -vx;
+            
         });    
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
@@ -30,6 +30,7 @@ class GhostController : public Process, public AgentInterface {
 
     double vx;
 
+
 };
 
 class Ghost : public Agent {
@@ -42,5 +43,3 @@ class Ghost : public Agent {
 };
 
 DECLARE_INTERFACE(Ghost)
-
-#endif
