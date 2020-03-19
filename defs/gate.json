@@ -1,7 +1,7 @@
 {
     "name": "Gate",
     "type": "static",
-    "description": "Replace this string with a description",
+    "description": "Advance deep into the castle",
     "shape": [
         { "x": -30, "y": 10 },
         { "x": 30, "y": 10 },

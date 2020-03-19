@@ -65,8 +65,8 @@
             "definition": "defs/knight.json",
             "style": { "fill": "orange", "stroke": "black" },
             "position": {
-                "x": -284, 
-                "y": 270, 
+                "x": 100, 
+                "y": 130, 
                 "theta": 0
             }
         },
@@ -167,7 +167,7 @@
             "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
-                "x": 0, 
+                "x": -20, 
                 "y": 90, 
                 "theta": 1.57
             }
@@ -176,7 +176,7 @@
             "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
-                "x": 60, 
+                "x": 170, 
                 "y": 130, 
                 "theta": -1.57
             }
@@ -342,8 +342,6 @@
 
 
 
-
-
         {
             "style": { "fill": "lightgreen", "stroke": "none" },
             "shape": [
@@ -374,9 +372,16 @@
         },
 
 
- 
+        {
+            "style": { "fill": "blue", "stroke": "none" },
+            "shape": [
+                { "x": 90, "y": 20 },
+                { "x": 130,  "y": 20 },
+                { "x": 130,  "y": 30 },
+                { "x": 90, "y": 30 }
+            ]
+        },
 
-        
         {
             "style": { "fill": "black", "stroke": "none" },
             "shape": [

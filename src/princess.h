@@ -6,7 +6,7 @@ class PrincessController : public Process, public AgentInterface {
 
     public:
     PrincessController() : Process(), AgentInterface() {}
-
+    //Touch the knight and win the game
     void init() {
         notice_collisions_with("playerAgent", [&](Event &e) {
             teleport(-344, 270, 0);

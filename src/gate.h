@@ -5,6 +5,7 @@
 
 using namespace enviro;
 
+//Make sure it is opened by the corresponding key
 class gateController : public Process, public AgentInterface {
 
     public:

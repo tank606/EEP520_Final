@@ -1,7 +1,7 @@
 {
     "name": "Guard",
     "type": "dynamic",
-    "description": "Police robot that will send you back to jail should you get caught.",
+    "description": "The castle guard, and once be touched, you will return to the starting point.",
     "shape": [
         { "x": -10, "y": 10 },
         { "x": 10, "y": 10 },

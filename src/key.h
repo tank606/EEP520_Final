@@ -5,6 +5,8 @@
 
 using namespace enviro;
 
+//keyController detects the collisions with knights. 
+//After a collision, remove itself and throw an event to remove the corresponding door
 class keyController : public Process, public AgentInterface {
 
     public:
@@ -12,8 +14,8 @@ class keyController : public Process, public AgentInterface {
 
     void init() {
         prevent_rotation();
-        notice_collisions_with("playerAgent", [&](Event &e) {
-            emit(Event("key1"));
+        notice_collisions_with("Knight", [&](Event &e) {
+            emit(Event("key1")); //in order to remove gate
             remove_agent(id());
         });   
     }

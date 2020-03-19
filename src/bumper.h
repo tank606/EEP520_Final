@@ -5,6 +5,8 @@
 
 using namespace enviro;
 
+//Create a static object to set the scope of ghost activity
+// no action
 class BumperController : public Process, public AgentInterface {
 
     public:

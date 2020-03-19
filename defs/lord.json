@@ -1,7 +1,7 @@
 {
     "name": "Lord",
     "type": "dynamic",
-    "description": "Time counter robot",
+    "description": "The villain's protagonist must get off the princess before he can contact the princess.",
     "shape": [
         { "x": -5, "y": 20 },
         { "x": 5, "y": 20 },

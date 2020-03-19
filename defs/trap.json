@@ -1,7 +1,7 @@
 {
   "name": "Trap",
   "type": "static",
-  "description": "Replace this string with a description",
+  "description": "Don't run into traps, will be teleported back to the beginning",
   "shape": [
       { "x": -10, "y": -10 },
       { "x": -10, "y": 10 },

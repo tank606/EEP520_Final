@@ -7,15 +7,11 @@ class TrapController : public Process, public AgentInterface {
 
     public:
     TrapController() : Process(), AgentInterface() {}
-
+    //Once collide with knight, throw "caught"
     void init() {
-        // By using notice_collisions_with it is possible to emit an
-        // event that another class can watch and catch. In this case,
-        // all the cameras care about is collisions with the playerAgent. 
-        // Collisions with the guards (should it happen) won't trigger anything.
-        // notice_collisions_with("playerAgent", [&](Event &e) {
-        //     emit(Event("caught"));
-        // });
+        notice_collisions_with("Knight", [&](Event &e) {
+            emit(Event("caught"));
+        });
     }
     void start() {}
     void update() {}

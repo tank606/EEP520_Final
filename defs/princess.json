@@ -1,7 +1,7 @@
 {
   "name": "Princess",
   "type": "dynamic",
-  "description": "Replace this string with a description",
+  "description": "Need to be saved. Once the knight contacts the princess, you win.",
   "shape": [
       { "x": -5, "y": 10 },
       { "x": 5, "y": 10 },

@@ -1,7 +1,7 @@
 {
     "name": "Bumper",
     "type": "static",
-    "description": "Replace this string with a description",
+    "description": "Limit the range of ghosts",
     "shape": [
         { "x": -5, "y": 10 },
         { "x": 5, "y": 10 },

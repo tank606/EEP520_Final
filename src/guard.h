@@ -6,74 +6,65 @@ namespace {
 
     using namespace enviro;
 
-    // Forward class defines the forward speed and makes the robot
-    // move in the forward direction.
-    class Forward : public State, public AgentInterface {
+    // MovingForward class defines speed of advance and detection of collision conditions
+    class MovingForward : public State, public AgentInterface {
         public:
         void entry(const Event& e) {
-            // Similar to the camera, guards will detect if the player Agent
-            // collides with them. This will emit an event that the player Agent
-            // can watch for and respond to. 
-            notice_collisions_with("playerAgent", [&](Event &e) {
+            // if they collide with the knigth, emit an event "caught", and knight will 
+            //get back to start point.
+            notice_collisions_with("Knight", [&](Event &e) {
                  emit(Event("caught"));
             });
         }
-        // In during() all its implemented is the forward motion and what to do when
-        // the robot is about to hit a wall which is detected by the sensors.
+        
         void during() { 
             track_velocity(5,0);
             if ( sensor_value(0) < 30 || sensor_value(1) < 8 || sensor_value(2) < 8 || 
             sensor_value(3) < 8 || sensor_value(4) < 8) {
-                emit(Event(tin));
+                emit(Event(tick_name));
             }            
         }
         void exit(const Event& e) {}
-        void tin_ring(std::string s) { tin = s; }
-        std::string tin;
+        void tin_ring(std::string s) { tick_name = s; }
+        std::string tick_name;
     };
 
-    // Angular class defines the angular (rotating) speed and makes the
-    // robot turn right or left in a randomized way. There is no forward
-    // movement when this class is in-place.
-    class Angular : public State, public AgentInterface {
+    // Rotating class defines the rotating speed and direction
+    class Rotating : public State, public AgentInterface {
         public:
         void entry(const Event& e) { 
-            randAngSpeed = rand() % 2 == 0 ? 2 : -2; 
+            rate = rand() % 2 == 0 ? 2 : -2;  //Randomly select left and right
         }
         void during() {
-            track_velocity(0, randAngSpeed);
-            if ( sensor_value(0) > 60 ) {
-                emit(Event(tin));
+            track_velocity(0, rate);
+            if ( sensor_value(0) > 60 ) { //transfer to move forward
+                emit(Event(tick_name));
             }
         }
         void exit(const Event& e) {}
-        double randAngSpeed;
-        void tin_ring(std::string s) { tin = s; }
-        std::string tin;        
+        double rate;
+        void tin_ring(std::string s) { tick_name = s; }
+        std::string tick_name;        
     };
 
-    // The monitorRobotController defines the states and transitions that the 
-    // state machine will have. Once an event is passed, the controller inficates
-    // to which class will the agent now respond. In this case, between Forward and 
-    // Angular class.
+    // The GuardController always detects if there are new events and perform state transitions.
     class GuardController : public StateMachine, public AgentInterface {
 
         public:
         GuardController() : StateMachine() {
 
-            set_initial(moveForward);
-            tin = "tin" + std::to_string(rand()%1000);
-            add_transition(tin, moveForward, moveAngular); // When "tin" is heard, it moves from one class
-                                                           // to another (Forward -> Angular)
-            add_transition(tin, moveAngular, moveForward);
-            moveForward.tin_ring(tin);
-            moveAngular.tin_ring(tin);
+            set_initial(moving_forward);
+            tick_name = "tick" + std::to_string(rand()%1000);
+            add_transition(tick_name, moving_forward, rotating); 
+            add_transition(tick_name, rotating, moving_forward);
+            moving_forward.tin_ring(tick_name);
+            rotating.tin_ring(tick_name);
 
         }
 
-        Forward moveForward;
-        Angular moveAngular;
-        std::string tin;
+        MovingForward moving_forward;
+        Rotating rotating;
+        std::string tick_name;
 
     };
 

@@ -8,61 +8,58 @@ namespace {
     using namespace enviro;
     using namespace std;
 
-    // This class makes the robot move forward. Same functionality as
-    // Forward class in monitor_robot.
-    class moveF : public State, public AgentInterface {
+    // Let the lord go straight
+    class MovingForward : public State, public AgentInterface {
         public:
         void entry(const Event& e) {}
         void during() {
             track_velocity(1,0);
-            if (sensor_value(0) < 3) {
-                emit(Event(tin));
+            if (sensor_value(0) < 3) { //When approaching the target, issue an event
+                emit(Event(tick_name));
             }
         }
         void exit(const Event& e) {}
-        void set_tin_name(std::string s) {tin = s;}
-        string tin;
+        void set_tin_name(std::string s) {tick_name = s;}
+        string tick_name;
     };
 
-    // Once the robot reaches the end of the hall, you want it to stop moving.
-    // This class stops the robot and lets the player-agent, through an Event,
-    // that the prison is in lockdown. 
-    class Stopped : public State, public AgentInterface {
+    // Set stop state, once event is thrown, enter new state, stop motion and label
+    class Stop : public State, public AgentInterface {
         public:
         void entry(const Event& e) {}
         void during() {
-            emit(Event("lockdown"));
+            emit(Event("Kill"));
             track_velocity(0,0);
             label(s, -20, -20);
         }
         void exit(const Event& e) {}
-        std::string s = "Prison in Lockdown!!";
+        std::string s = "Game over";
     };
 
-    // The timeRobotController class simply defines the states and transitions of
+    // The LordController class simply defines the states and transitions of
     // the state machine
-    class timeRobotController : public StateMachine, public AgentInterface {
+    class LordController : public StateMachine, public AgentInterface {
         public:
-        timeRobotController() : StateMachine () {
-            set_initial(moveForward);
-            theEvent = "tin_" + std::to_string(rand()%1000);
-            add_transition(theEvent, moveForward, stop);
-            moveForward.set_tin_name(theEvent);
+        LordController() : StateMachine () {
+            set_initial(move_forward);
+            tick_name = "tin_" + std::to_string(rand()%1000);
+            add_transition(tick_name, move_forward, stop);
+            move_forward.set_tin_name(tick_name);
         }
 
-        moveF moveForward;
-        Stopped stop;
-        string theEvent;
+        MovingForward move_forward;
+        Stop stop;
+        string tick_name;
     };
 
-    class timeRobot : public Agent {
+    class Lord : public Agent {
         public:
-        timeRobot(json spec, World& world) : Agent(spec, world) {
+        Lord(json spec, World& world) : Agent(spec, world) {
             add_process(c);
         }
 
-        timeRobotController c;
+        LordController c;
     };
     
-    DECLARE_INTERFACE(timeRobot)
+    DECLARE_INTERFACE(Lord)
 }

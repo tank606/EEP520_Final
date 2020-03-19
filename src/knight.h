@@ -26,32 +26,27 @@ class KnightController : public Process, public AgentInterface {
         return height() > H_MIN;
     }
     void init() {
-        // This watch is looking for collisions that took place
-        // between the agent and the guards or the cameras. If the
-        // event "caught" is heard, the player returns to the 
-        // starting point.
+        // caught: Back to the starting point after being caughtd by ghost, guard, trap
         watch("caught", [this](Event e) {
-            teleport(-364, 270, 0);
+            teleport(-360, 270, 0);
         });
+
+        //win: Back to the starting point after saving the princess
         watch("win", [this](Event e) {
-            teleport(-364, 270, 0);
+            teleport(-360, 270, 0);
         });
-        prevent_rotation();
-        // If the time_robot (Commisioner) reached the end, it'll
-        // display that you did not make it.
-        watch("lockdown", [this](Event e) {
-            cpVect vect = position();
-            double x = vect.x;
-            double y = vect.y;
-            if (x > 330 && y > 260) {
-                label("Success", 15, 0);
-                teleport(360, 320, 0);
-            } else {
-                label("Fail", 0, 0);
-                teleport(-364, 270, 0);
-            }
+
+        prevent_rotation(); //prevent rotation during movement
+
+        //kill: The lord has killed the princess, the knight has failed and returned to the starting point
+        watch("Kill", [this](Event e) {
+
+            label("Fail", 0, 0);
+            teleport(-360, 270, 0);
+            
         });
-        
+
+        //airborne ensures that it is currently on the plane, not the air.
         watch("keydown", [&](Event& e) {
             std::string k = e.value()["key"];
             if ( k == " " & !airborne()) {
@@ -62,6 +57,7 @@ class KnightController : public Process, public AgentInterface {
                 RIGHT = true;
             } 
         });
+        
         watch("keyup", [&](Event& e) {
             std::string k = e.value()["key"];
             if ( k == "a" ) {
@@ -70,12 +66,11 @@ class KnightController : public Process, public AgentInterface {
                 RIGHT = false;
             }
         }); 
-        //omni_apply_force(xf,yf);
     }
     void start() {}
-
+    
+    //demonstrates how to simulate gravity
     void update() {
-        //omni_damp_movement();
         double fx;
         double fy = JUMP ? JUMP_F : 0;
         if ( !airborne() ) {

@@ -1,7 +1,7 @@
 {
     "name": "Knight",
     "type": "dynamic",
-    "description": "Robot that user controls",
+    "description": "User controls",
     "shape":[
       { "x": -5, "y": 10 },
       { "x": 5, "y": 10 },
