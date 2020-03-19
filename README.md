@@ -14,7 +14,7 @@ Here are the steps to install and play the game:
 1. Make sure you have git installed on your computer and clone repository into a folder on your local drive
 
 ```bash
-git clone https://github.com/arodzUW/EEP520_Final.git
+git clone https://github.com/tank606/EEP520_Final.git
 cd EEP520_Final
 ```
 
