@@ -1,0 +1,19 @@
+{
+    "name": "Gate",
+    "type": "static",
+    "description": "Replace this string with a description",
+    "shape": [
+        { "x": -30, "y": 10 },
+        { "x": 30, "y": 10 },
+        { "x": 30, "y": 0 },
+        { "x": -30, "y": 0 }
+    ],
+    "friction": {
+      "collision": 5,
+      "linear": 40,
+      "rotational": 600
+    },
+    "sensors": [],
+    "mass": 100,    
+    "controller": "lib/gate.so"
+}
