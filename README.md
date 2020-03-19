@@ -1,10 +1,10 @@
-EE P 520: Final Project
+EE P 520 Final Project
 ==
 ## Project Goal
-The project goal is to save the princess prevent her from attacking by the Lord of the Dark Castle. A user-controlled agent (knight) needs to pass through the blockade of other automatic agents (ghost, guard), and also needs to find the corresponding key in order to unlock the corresponding door. Without wasting time, the knight has the responsibility to save the princess through the castle. User-controlled robots can only move and jump left and right, while ghost is a specific area that can hover back and forth and guard the entire castle can move.
+The purpose of this project was to use C++ and multi-agent systems to build a Room Escape game. You need to control a knight to save the princess prevent her from attacking by the Lord of the Dark Castle. A user-controlled agent (knight) needs to pass through the blockade of other automatic agents (Ghost, Guard and Trap), and also needs to find the corresponding key in order to unlock the corresponding door. User-controlled robots can only move and jump left and right, while Ghosts work on a specific area and Guards can patrol the entire castle.
 
 ## Game Description and Instructions
-In this video game, you, as a knight, are trying to go to the castle to save the princess! You (round object) are running knights. It is your job to enter the depths of the castle before the Lord of the Dark Castle (the red square robot). The latter finds out that you have entered and plans to kill the princess within a certain time. If you exceed the time, you will lose the princess forever. But beware, there are ghosts and guards everywhere in the castle, but warping guards (blue square robots). They can tolerate seeing you running around, but they will not tolerate you touching them. Touch them, and you're back at the beginning of the castle gate! Don't let yourself be caught by the trap (brown triangle on the map)! Touch the trap will also take you back to where you started. When you find the princess, you and the princess will return to the entrance position together.
+In this game, you, as a knight, are trying to pass the castle to save the princess! The Lord of the Dark Castle (the red square robot) finds that you had entered the castle and he was very angry and wanted to kill the princess. You should take the princess before he approaches the princess. If you exceed the time, you will lose the princess forever. But there are ghosts and guards everywhere in the castle. You can appear in the guard's field of vision, but you cannot touch him. Ghosts will only appear in certain places, you need to find the right time to avoid them.Don't let yourself be caught by the trap (brown triangle on the map)! Touch guard, ghost and traps, and you're back at the beginning of the castle gate! When you find nowhere else to go, try to find a hidden key. Get it and the hidden door will open. When you find the princess, you and the princess will return to the entrance position together.
 
 ## Installing & playing the game
 Please note that the following steps are based on a Windows 10 computer. Mac computers follow similar steps, but some steps may be slightly different. However, the overall process for both systems remains the same.
@@ -12,21 +12,28 @@ Please note that the following steps are based on a Windows 10 computer. Mac com
 Here are the steps to install and play the game:
 
 1. Make sure you have git installed on your computer and clone repository into a folder on your local drive
-git clone https://github.com/arodzUW/EEP520-FinalProject.git
-cd EEP520-FinalProject
 
-2. The project uses ELMA and ENVIRO software packages. Repositories and information on how to use them, call them, and implement them can be found in the links shown below:
+```bash
+git clone https://github.com/arodzUW/EEP520_Final.git
+cd EEP520_Final
+```
 
-ELMA
-ENVIRO 
+2. The project uses `ELMA` and `ENVIRO` software packages. Repositories and information on how to use them, call them, and implement them can be found in the links shown below:
+
+- [ELMA](https://github.com/klavinslab/elma)<br />
+- [ENVIRO](https://github.com/klavinslab/enviro) <br />
+
 
 3.  Make sure that Docker is installed on your computer. Both ELMA and ENVIRO are pre-loaded into Docker images / containers, which makes calling these packages easier. Go to the directory where you copied the project and do the following in a terminal window:
 
-docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.4?? bash
+```bash
+docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.4 bash
+```
 
 4. To run the game: in the terminal, within the EEP520-FinalProject directory run
-cd SavePrincess
+```bash
 esm start
+```
 
 5. Open up a browser and go to your [localhost address](http://localhost/)
 
