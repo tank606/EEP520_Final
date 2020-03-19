@@ -1,5 +1,4 @@
-#ifndef __TIME_ROBOT_AGENT__H
-#define __TIME_ROBOT_AGENT__H 
+
 
 #include "enviro.h"
 #include <iostream>
@@ -67,4 +66,3 @@ namespace {
     
     DECLARE_INTERFACE(timeRobot)
 }
-#endif

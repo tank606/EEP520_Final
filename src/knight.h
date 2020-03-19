@@ -44,10 +44,10 @@ class KnightController : public Process, public AgentInterface {
             double x = vect.x;
             double y = vect.y;
             if (x > 330 && y > 260) {
-                label("I escaped!!!", 15, 0);
+                label("Success", 15, 0);
                 teleport(360, 320, 0);
             } else {
-                label("Didn't make it!", 0, 0);
+                label("Fail", 0, 0);
                 teleport(-364, 270, 0);
             }
         });
@@ -124,5 +124,3 @@ class Knight : public Agent {
 };
 
 DECLARE_INTERFACE(Knight)
-
-#endif

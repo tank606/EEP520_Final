@@ -216,3 +216,7 @@ During the development of this project, I encountered some challenges that took 
 - Design of the castle. How to design a maze reasonably needs to weigh the fun and difficulty. Too rich elements will make the game more difficult. At the beginning of the project, I added as many elements as possible to the castle to make the game fun. However, when I tested the game, I found that the game became more difficult, and different elements directly tried to conflict. In addition, using code to build visualization components is a time-consuming and laborious task. Each time you need to predict the coordinates, then modify the code, compile, and finally check whether it is correct from the web page. This process is continuously cycled until the end. Here, I hope that the teacher can adjust the element coordinate display function in an interface, and the mouse can display its coordinates from the corner to the corner.
 
 
+## Sources Used
+
+The project was fully developed using as a baseline the pre-loaded ENVIRO examples along with the documentation for functionalities implementation. Other minor sources from Google searches were referenced to search for more basing functionalities and C++ documentation.
+

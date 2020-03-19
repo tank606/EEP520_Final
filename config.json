@@ -8,7 +8,7 @@
 
     "agents": [ 
         {
-            "definition": "defs/time_robot.json",
+            "definition": "defs/lord.json",
             "style": { "fill": "red", "stroke": "black" },
             "position": {
                 "x": 425, 
@@ -130,7 +130,7 @@
 
 
         {
-            "definition": "defs/monitor_robot.json",
+            "definition": "defs/guard.json",
             "style": { "fill": "blue", "stroke": "black" },
             "position": {
                 "x": 0, 
@@ -139,7 +139,7 @@
             }
         },
         {
-            "definition": "defs/monitor_robot.json",
+            "definition": "defs/guard.json",
             "style": { "fill": "blue", "stroke": "black" },
             "position": {
                 "x": 364, 
@@ -148,7 +148,7 @@
             }
         },
         {
-            "definition": "defs/monitor_robot.json",
+            "definition": "defs/guard.json",
             "style": { "fill": "blue", "stroke": "black" },
             "position": {
                 "x": 0, 
@@ -158,7 +158,7 @@
         },
 
         {
-            "definition": "defs/monitor_robot.json",
+            "definition": "defs/guard.json",
             "style": { "fill": "blue", "stroke": "black" },
             "position": {
                 "x": 265, 
@@ -173,7 +173,7 @@
         
 
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": 230, 
@@ -182,7 +182,7 @@
             }
         },
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": 160, 
@@ -191,7 +191,7 @@
             }
         },
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": 0, 
@@ -200,7 +200,7 @@
             }
         },
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": 60, 
@@ -209,7 +209,7 @@
             }
         }, 
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": 40, 
@@ -218,7 +218,7 @@
             }
         },
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": -20, 
@@ -227,7 +227,7 @@
             }
         },
         {
-            "definition": "defs/camera_robot.json",
+            "definition": "defs/trap.json",
             "style": { "fill": "brown", "stroke": "black" },
             "position": {
                 "x": -90, 
