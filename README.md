@@ -78,14 +78,14 @@ During the development of this project, I encountered some challenges that took 
 
 - The second challenge: the guard distribution problem. At the beginning, guards were added at each intersection to enhance the fun of the game. At this point, the problem occurred. Multiple guards may be concentrated in one area, which makes the game scene very complicated, the game becomes too difficult, and even the situation of death (the intersection is blocked.) I solved this problem by reducing the number of guards and Add other interesting elements, like ghoast. In addition, the guard patrol area should be separated as much as possible to prevent multiple guards in one area, which will cause intersection blocking, and design a narrow area as much as possible to reduce the occurrence of guard rotation.
 
-The third challenge: the choice of object type. Even if it is wall-like, I cannot simply use json build picture because there are states that need to be triggered. Define the types of different objects. For example, the gate needs to be an object that can be opened and changed, so you need to create a new class instead of directly using config to build the wall, because the gate needs to respond to the event "key".
+- The third challenge: the choice of object type. Even if it is wall-like, I cannot simply use json build picture because there are states that need to be triggered. Define the types of different objects. For example, the gate needs to be an object that can be opened and changed, so you need to create a new class instead of directly using config to build the wall, because the gate needs to respond to the event "key".
 
-The fourth challenge: establish the correspondence between key and gate. Since multiple doors need to be opened, multiple keys need to be provided. How to ensure that the first key found corresponds to the first door. Here, I briefly set the types of different keys for different keys and correspond to different doors. There are other ideas I can optimize in the future: using distance judgment, that door is opened as close to the current key.
+- The fourth challenge: establish the correspondence between key and gate. Since multiple doors need to be opened, multiple keys need to be provided. How to ensure that the first key found corresponds to the first door. Here, I briefly set the types of different keys for different keys and correspond to different doors. There are other ideas I can optimize in the future: using distance judgment, that door is opened as close to the current key.
 
 
 ## Acknowledgements
 
-The project was fully developed using as a baseline the pre-loaded ENVIRO examples along with the documentation for functionalities implementation. Other minor sources from Google searches were referenced to search for more basing functionalities and C++ documentation.
+The project was developed based on example code Dr. Klavins provided as well the Elma (event loop manager) & ENVIRO which the documentation and source code can be found at https://github.com/klavinslab.
 
-Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for your continuous support, guidance, and mentoring.
+Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for your support, help, and mentoring.
 
