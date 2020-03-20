@@ -1,10 +1,10 @@
 EE P 520 Final Project
 ==
 ## Project Goal
-The purpose of this project was to use C++ and multi-agent systems to build a Room Escape game. You need to control a knight to save the princess prevent her from attacking by the Lord of the Dark Castle. A user-controlled agent (knight) needs to pass through the blockade of other automatic agents (Ghost, Guard and Trap), and also needs to find the corresponding key in order to unlock the corresponding door. User-controlled robots can only move and jump left and right, while Ghosts work on a specific area and Guards can patrol the entire castle.
+The purpose of this project was to use C++ and multi-agent systems to build a Room Escape game. You need to control a knight to save the princess to prevent her from attacking by the Lord of the Dark Castle. A user-controlled agent (Knight) needs to pass through the blockade of other automatic agents (Ghost, Guard and Trap), and also needs to find the corresponding key in order to unlock the corresponding door. User-controlled robots can only move and jump left and right, while Ghosts work on a specific area and Guards can patrol the entire castle.
 
 ## Game Description and Instructions
-In this game, you, as a knight, are trying to pass the castle to save the princess! The Lord of the Dark Castle (the red square robot) finds that you had entered the castle and he was very angry and wanted to kill the princess. You should take the princess before he approaches the princess. If you exceed the time, you will lose the princess forever. But there are ghosts and guards everywhere in the castle. You can appear in the guard's field of vision, but you cannot touch him. Ghosts will only appear in certain places, you need to find the right time to avoid them.Don't let yourself be caught by the trap (brown triangle on the map)! Touch guard, ghost and traps, and you're back at the beginning of the castle gate! When you find nowhere else to go, try to find a hidden key. Get it and the hidden door will open. When you find the princess, you and the princess will return to the entrance position together.
+In this game, you, as a knight, are trying to pass the castle to save the princess! The Lord of the Dark Castle (the red square robot) finds that you had entered the castle and he was very angry and wanted to kill the princess. You should take the princess before he approaches the princess. If you exceed the time, you will lose the princess forever. But there are ghosts and guards everywhere in the castle. You can appear in the guard's field of vision, but you cannot touch him. Ghosts will only appear in certain places and you need to find the right time to avoid them. Don't let yourself be caught by the trap (brown triangle on the map)! Touch guard, ghost and traps, and you're back at the beginning of the castle gate! When you find nowhere else to go, try to find a hidden key. Get it and the hidden door will open. When you find the princess, you and the princess will return to the entrance position together.
 
 ## Installing & playing the game
 Please note that the following steps are based on a Windows 10 computer. Mac computers follow similar steps, but some steps may be slightly different. However, the overall process for both systems remains the same.
@@ -24,7 +24,7 @@ cd EEP520_Final
 - [ENVIRO](https://github.com/klavinslab/enviro) <br />
 
 
-3.  Make sure that Docker is installed on your computer. Both ELMA and ENVIRO are pre-loaded into Docker images / containers, which makes calling these packages easier. Go to the directory where you copied the project and do the following in a terminal window:
+3.  Make sure that Docker is installed on your computer. Both ELMA and ENVIRO are pre-loaded into Docker images/containers, which makes calling these packages easier. Go to the directory where you copied the project and do the following in a terminal window:
 
 ```bash
 docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.4 bash
@@ -58,32 +58,32 @@ The princess is a pink robot and is waiting for you to save. Princess is codenam
 For fun, I design some closed doors. You have to find the corresponding keys in order and open the corresponding doors. Repeat the cycle until the last door is finally opened. I add collision detection in key.h for knight and emit the event("key") to deletes the current key. This event is also detected in gate.h, and then the corresponding gate is opened.
 
 ### Guards
-The guards are blue robots that can automatically navigate on the map. It mainly has two functions: MovingForward and Rotating. For MovingForward, guards move forward while detecting the distance from the obstacle. If the distance is close, they will switch to Rotating mode. In the Rotating mode, 
-the direction of rotation is chosen randomly to initialize until there are no obstacles in a certain direction. It also detects if it collides with knight.
+The guards are blue robots that can automatically navigate on the map. It mainly has two functions: MovingForward and Rotating. For MovingForward, guards move forward while detecting the distance from the obstacle. If the distance is short, they will switch to Rotating mode. In the Rotating mode, 
+the direction of rotation is chosen randomly to initialize until there are no obstacles in a certain direction. It also detects if it collides with the Knight.
 
 ### Ghost
 Ghost(green robots) initiates reverse motion by detecting bumper collisions. In the process of movement, the force is continuously reduced to achieve the purpose of uniform speed movement.
 
 ### Traps
-Considering that traps does not need to move, they are defined as a static type. In addition, a collision detection with Knight is required to make Knight go back to the start point.
+Considering that traps do not need to move, they are defined as a static type. Besides, collision detection with Knight is required to make Knight go back to the start point.
 
 ### The Lord of the Dark Castle
-The Lord is the red robot approaching the princess. The code name for the Lord is "lord". Two main classes control the main functions, MovingForward and Stop. The "MovingForward" class controls the speed at which the robot moves forward. When approaching the princess, I use a stop function to stop and emit a event "fail".
+The Lord is the red robot approaching the princess. The code name for the Lord is "lord". Two main classes control the main functions, MovingForward and Stop. The "MovingForward" class controls the speed at which the robot moves forward. When approaching the princess, I use a stop function to stop and emit an event "fail".
 
 
 ## Key Development Challenges
 During the development of this project, I encountered some challenges that took me some time to figure out. As a student majoring in biological engineering, this course is my first course on programming C++. I still remembered one typo bug on the first assignment. See the list below for the main challenges:
 
-- The first key challenge I had was designing a interesting and featible castle.How to design a maze reasonably needs to weigh the fun and difficulty. Too rich elements will make the game more difficult. At the beginning of the project, I added as many elements as possible to the castle to make the game fun. However, when I tested the game, I found that the game became more difficult, and different elements directly tried to conflict. In addition, using code to build visualization components is a time-consuming and laborious task. Each time you need to predict the coordinates, then modify the code, compile, and finally check whether it is correct from the web page. This process is continuously cycled until the end. Here, I hope that the teacher can adjust the element coordinate display function in an interface, and the mouse can display its coordinates from the corner to the corner.
+- The first key challenge I had was designing an interesting and feasible castle. How to design a maze reasonably needs to weigh the fun and difficulty. Too rich elements will make the game more challenging. At the beginning of the project, I added as many elements as possible to the castle to make the game fun. However, when I tested the game, I found that the game became more complicated, and different elements directly tried to conflict. In addition, using code to build visualization components is a time-consuming and laborious task. Each time you need to predict the coordinates, then modify the code, compile, and finally check whether it is correct from the web page. This process is continuously cycled until the end. 
 
-- The second challenge: the guard distribution problem. At the beginning, guards were added at each intersection to enhance the fun of the game. At this point, the problem occurred. Multiple guards may be concentrated in one area, which makes the game scene very complicated, the game becomes too difficult, and even the situation of death (the intersection is blocked.) I solved this problem by reducing the number of guards and Add other interesting elements, like ghoast. In addition, the guard patrol area should be separated as much as possible to prevent multiple guards in one area, which will cause intersection blocking, and design a narrow area as much as possible to reduce the occurrence of guard rotation.
+- The second challenge: the guard distribution. At the beginning, guards were added at each intersection to enhance the fun of the game. At this point, the problem occurred. Multiple guards may be concentrated in one area, which makes the game scene very complicated, the game becomes too difficult, and even the situation of death (the intersection is blocked.) I solved this problem by reducing the number of guards and Add other exciting elements, like ghosts. In addition, the guard patrol area should be separated as much as possible to prevent multiple guards in one area, which will cause intersection blocking, and design a narrow space as much as possible to reduce the occurrence of guard rotation.
 
-- The third challenge: the choice of object type. Even if it is wall-like, I cannot simply use json build picture because there are states that need to be triggered. Define the types of different objects. For example, the gate needs to be an object that can be opened and changed, so you need to create a new class instead of directly using config to build the wall, because the gate needs to respond to the event "key".
+- The third challenge: the choice of object type. Even if it is wall-like, I cannot simply use JSON build picture because there are states that need to be triggered. Define the types of different objects. For example, the gate needs to be an object that can be opened and changed, so you need to create a new class instead of directly using config to build the wall, because the gate needs to respond to the event "key".
 
-- The fourth challenge: establish the correspondence between key and gate. Since multiple doors need to be opened, multiple keys need to be provided. How to ensure that the first key found corresponds to the first door. Here, I briefly set the types of different keys for different keys and correspond to different doors. There are other ideas I can optimize in the future: using distance judgment, that door is opened as close to the current key.
+- The fourth challenge: establish the correspondence between key and gate. Since multiple doors need to be opened, multiple keys need to be provided. How to ensure that the first key found corresponds to the first door. Here, I briefly set the types of different keys for different keys and correspond to different doors. There are other ideas I can optimize in the future: calculate the direct distance between the current position and all doors, open the nearest door.
 
 
-## Acknowledgements
+## Acknowledgments
 
 The project was developed based on example code Dr. Klavins provided as well the Elma (event loop manager) & ENVIRO which the documentation and source code can be found at https://github.com/klavinslab.
 
