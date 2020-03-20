@@ -91,3 +91,9 @@ The project was developed based on example code Dr. Klavins provided as well the
 
 Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for your support, help, and mentoring.
 
+
+## Game rendering
+# Win
+![Game image](image/win.PNG)
+# Fail
+![Game image](image/fail.PNG)
