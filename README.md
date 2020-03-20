@@ -96,4 +96,4 @@ Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for you
 # Win
 ![Game image](image/win.PNG)
 # Fail
-![Game image](image/fail.PNG)
+![Game image](image/Fail.PNG)
