@@ -51,23 +51,23 @@ Friendly reminder: During the game, take care of your keyboard and sometimes you
 ## Agents Introduction
 
 ### Knight
-The knight.h file controls the functions of the robot. The functions implemented are as follows: turns off rotations, simulate gravity, jumping, and left/right movement. It also 'watches' for some events(caught, win, fail) being sent from other classes and responds to them as appropriate.
+The knight.h file controls the functions of the robot(yellow robot). The functions implemented are as follows: turns off rotations, simulate gravity, jumping, and left/right movement. It also 'watches' for some events(caught, win, fail) being sent from other classes and responds to them as appropriate.
 
 ### Princess
 The princess is a pink robot and is waiting for you to save. Princess is codenamed "princess," and all its functions are controlled by the princess.h file. The princess doesn't need to do anything, just wait for the knight. So, I add notice_collisions_with("Knight") to detect if the knight has arrived. If it happens, emit Event("win"). 
 
 ### Keys and Gates
-For fun, I design some closed doors. You have to find the corresponding keys in order and open the corresponding doors. Repeat the cycle until the last door is finally opened. I add collision detection in key.h for knight and emit the event("key") to deletes the current key. This event is also detected in gate.h, and then the corresponding gate is opened.
+For fun, I design some closed doors. You have to find the corresponding keys(Blue robots) in order and open the corresponding doors. Repeat the cycle until the last door is finally opened. I add collision detection in key.h for knight and emit the event("key") to deletes the current key. This event is also detected in gate.h, and then the corresponding gate is opened.
 
 ### Guards
-The guards are blue robots that can automatically navigate on the map. It mainly has two functions: MovingForward and Rotating. For MovingForward, guards move forward while detecting the distance from the obstacle. If the distance is short, they will switch to Rotating mode. In the Rotating mode, 
+The guards are green robots that can automatically navigate on the map. It mainly has two functions: MovingForward and Rotating. For MovingForward, guards move forward while detecting the distance from the obstacle. If the distance is short, they will switch to Rotating mode. In the Rotating mode, 
 the direction of rotation is chosen randomly to initialize until there are no obstacles in a certain direction. It also detects if it collides with the Knight.
 
 ### Ghost
 Ghost(green robots) initiates reverse motion by detecting bumper collisions. In the process of movement, the force is continuously reduced to achieve the purpose of uniform speed movement.
 
 ### Traps
-Considering that traps do not need to move, they are defined as a static type. Besides, collision detection with Knight is required to make Knight go back to the start point.
+Considering that traps(purple robots) do not need to move, they are defined as a static type. Besides, collision detection with Knight is required to make Knight go back to the start point.
 
 ### The Lord of the Dark Castle
 The Lord is the red robot approaching the princess. The code name for the Lord is "lord". Two main classes control the main functions, MovingForward and Stop. The "MovingForward" class controls the speed at which the robot moves forward. When approaching the princess, I use a stop function to stop and emit an event "fail".

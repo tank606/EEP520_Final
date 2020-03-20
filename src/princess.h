@@ -12,6 +12,9 @@ class PrincessController : public Process, public AgentInterface {
             teleport(-344, 270, 0);
             emit(Event("win"));
         });
+        decorate(R"(<g>
+            <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
+            <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");
     }
     void start() {}
     void update() {}

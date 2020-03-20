@@ -88,6 +88,10 @@ namespace {
             track_velocity(0,0);
             label("I am very angry!", 0, 0);
         });
+        decorate(R"(<g>
+            <circle cx=0 cy=-10 r=3 style='fill:black'></circle>
+            <circle cx=0 cy=10 r=3 style='fill:black'></circle></g>)");
+        
     }
 
     void start() {}
