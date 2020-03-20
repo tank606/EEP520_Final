@@ -39,7 +39,7 @@ class KnightController : public Process, public AgentInterface {
         prevent_rotation(); //prevent rotation during movement
 
         //kill: The lord has killed the princess, the knight has failed and returned to the starting point
-        watch("Kill", [this](Event e) {
+        watch("fail", [this](Event e) {
 
             label("Fail", 0, 0);
             teleport(-360, 270, 0);

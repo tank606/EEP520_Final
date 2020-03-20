@@ -30,51 +30,62 @@ cd EEP520_Final
 docker run -p80:80 -p8765:8765 -v $PWD:/source -it klavins/enviro:v1.4 bash
 ```
 
-4. To run the game: in the terminal, within the EEP520-FinalProject directory run
+4. To run the game: in the terminal, within the EEP520_Final directory run
 ```bash
 esm start
 ```
 
-5. Open up a browser and go to your [localhost address](http://localhost/)
+5. Open up a browser and Then navigate to http://localhost you should see a rectangular walled area.
 
-6. Compile and run the game, from inside the SavePrincess directory run:
+6. Compile and run the game, from inside the EEP520_Final directory run:
 make
 enviro
 
 7. The game should now start in your browser. Use the space, "a" and "d" key to move the knight.
 
-8. Enjoy the game.
+8. Enjoy the game. You can press Ctrl-C to stop the enviro server.
 
 
 ## Agents Introduction
 
 ### Knight
-The player agent is you, a knight, a user-controlled robot. The knight.h file controls the functions of the robot. In simple terms, once the simulation begins, the robot has a main category that defines its behavior: "KnightController." The KnightController class defines the actions that the robot should perform when a key on the keyboard is pressed, and which direction the robot should move when a key is pressed. This class also check events sent by other classes and responds to them when appropriate. For more details, see the remaining in-code comments in the .h file. Under the KnightController class.
+The knight.h file controls the functions of the robot. The functions implemented are as follows: turns off rotations, simulate gravity, jumping, and left/right movement. It also 'watches' for some events(caught, win, fail) being sent from other classes and responds to them as appropriate.
 
 ### Princess
-The princess is a pink robot and is waiting for you to save. Princess is codenamed "princess," and all its functions are controlled by the princess.h file. The princess doesn't need to do anything, just wait for the knight. Corresponding to this class, you only need to detect the arrival of the knight in init(). For more details, see the remaining in-code comments in the .h file.
+The princess is a pink robot and is waiting for you to save. Princess is codenamed "princess," and all its functions are controlled by the princess.h file. The princess doesn't need to do anything, just wait for the knight. So, I add notice_collisions_with("Knight") to detect if the knight has arrived. If it happens, emit Event("win"). 
 
 ### Keys and Gates
-For fun, I added the ability to find keys and open doors. You have to find the corresponding keys in order and open the corresponding doors. Repeat the cycle until the last door is finally opened. I added collision detection in key.h for knight and throws the event key and deletes the current key. This event is detected in gate.h, and then the corresponding gate is removed.
+For fun, I design some closed doors. You have to find the corresponding keys in order and open the corresponding doors. Repeat the cycle until the last door is finally opened. I add collision detection in key.h for knight and emit the event("key") to deletes the current key. This event is also detected in gate.h, and then the corresponding gate is opened.
+
+### Guards
+The guards are blue robots that can automatically navigate on the map. It mainly has two functions: MovingForward and Rotating. For MovingForward, guards move forward while detecting the distance from the obstacle. If the distance is close, they will switch to Rotating mode. In the Rotating mode, 
+the direction of rotation is chosen randomly to initialize until there are no obstacles in a certain direction. It also detects if it collides with knight.
+
+### Ghost
+Ghost(green robots) initiates reverse motion by detecting bumper collisions. In the process of movement, the force is continuously reduced to achieve the purpose of uniform speed movement.
+
+### Traps
+Considering that traps does not need to move, they are defined as a static type. In addition, a collision detection with Knight is required to make Knight go back to the start point.
 
 ### The Lord of the Dark Castle
-The Lord is the red robot watching the princess. It is code-named "Lord" and the master controls all its functions.h files. Two main classes control the main functions, moveF and Stopped. The "moveF" class controls the speed at which the robot moves forward, and the "Stoppped" class controls the operation when the robot reaches the princess. For more details, see the remaining in-code comments in the .h file.
-
-### The Guards
-The guards are scattered blue robots that can navigate on the map. The code of the guard program is "guard," and the guard controls all its function.h classes. The work of the controller is divided into two categories: forward and tilt. The forward motion controls the forward motion of the robot, while the angle controls the rotational movement of the robot. For more details, see the remaining in-code comments in the .h file.
-
-### The Traps
-Given that these traps are static "robots" and do not need to move on a map, they are programmed differently than all other robots. Using the default class automatically generated when ENVIRO's ESM create function is called, you can detect when other objects interact with it. All trap functions are built into the class. For more details, see the trap in-code comments in the .h file. 
-
+The Lord is the red robot approaching the princess. The code name for the Lord is "lord". Two main classes control the main functions, MovingForward and Stop. The "MovingForward" class controls the speed at which the robot moves forward. When approaching the princess, I use a stop function to stop and emit a event "fail".
 
 
 ## Key Development Challenges
-During the development of this project, I encountered some challenges that took me some time to figure out. Fully public and an educated biology engineer, this course is my first course in programming and C / C ++. For me, the challenge may not be a challenge at all for an experienced programmer. See the list below for the main challenges:
+During the development of this project, I encountered some challenges that took me some time to figure out. As a student majoring in biological engineering, this course is my first course on programming C++. I still remembered one typo bug on the first assignment. See the list below for the main challenges:
 
-- Design of the castle. How to design a maze reasonably needs to weigh the fun and difficulty. Too rich elements will make the game more difficult. At the beginning of the project, I added as many elements as possible to the castle to make the game fun. However, when I tested the game, I found that the game became more difficult, and different elements directly tried to conflict. In addition, using code to build visualization components is a time-consuming and laborious task. Each time you need to predict the coordinates, then modify the code, compile, and finally check whether it is correct from the web page. This process is continuously cycled until the end. Here, I hope that the teacher can adjust the element coordinate display function in an interface, and the mouse can display its coordinates from the corner to the corner.
+- The first key challenge I had was designing a interesting and featible castle.How to design a maze reasonably needs to weigh the fun and difficulty. Too rich elements will make the game more difficult. At the beginning of the project, I added as many elements as possible to the castle to make the game fun. However, when I tested the game, I found that the game became more difficult, and different elements directly tried to conflict. In addition, using code to build visualization components is a time-consuming and laborious task. Each time you need to predict the coordinates, then modify the code, compile, and finally check whether it is correct from the web page. This process is continuously cycled until the end. Here, I hope that the teacher can adjust the element coordinate display function in an interface, and the mouse can display its coordinates from the corner to the corner.
+
+- The second challenge: the guard distribution problem. At the beginning, guards were added at each intersection to enhance the fun of the game. At this point, the problem occurred. Multiple guards may be concentrated in one area, which makes the game scene very complicated, the game becomes too difficult, and even the situation of death (the intersection is blocked.) I solved this problem by reducing the number of guards and Add other interesting elements, like ghoast. In addition, the guard patrol area should be separated as much as possible to prevent multiple guards in one area, which will cause intersection blocking, and design a narrow area as much as possible to reduce the occurrence of guard rotation.
+
+The third challenge: the choice of object type. Even if it is wall-like, I cannot simply use json build picture because there are states that need to be triggered. Define the types of different objects. For example, the gate needs to be an object that can be opened and changed, so you need to create a new class instead of directly using config to build the wall, because the gate needs to respond to the event "key".
+
+The fourth challenge: establish the correspondence between key and gate. Since multiple doors need to be opened, multiple keys need to be provided. How to ensure that the first key found corresponds to the first door. Here, I briefly set the types of different keys for different keys and correspond to different doors. There are other ideas I can optimize in the future: using distance judgment, that door is opened as close to the current key.
 
 
-## Sources Used
+## Acknowledgements
 
 The project was fully developed using as a baseline the pre-loaded ENVIRO examples along with the documentation for functionalities implementation. Other minor sources from Google searches were referenced to search for more basing functionalities and C++ documentation.
+
+Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for your continuous support, guidance, and mentoring.
 

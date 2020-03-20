@@ -28,7 +28,7 @@ namespace {
         public:
         void entry(const Event& e) {}
         void during() {
-            emit(Event("Kill"));
+            emit(Event("fail"));
             track_velocity(0,0);
             label(s, -20, -20);
         }
