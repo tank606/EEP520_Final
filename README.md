@@ -43,7 +43,9 @@ enviro
 
 7. The game should now start in your browser. Use the space, "a" and "d" key to move the knight.
 
-8. Enjoy the game. You can press Ctrl-C to stop the enviro server.
+8. Enjoy the game. You can press Ctrl-C to stop the enviro server. 
+
+Friendly reminder: During the game, take care of your keyboard and sometimes you want to throw it away.
 
 
 ## Agents Introduction

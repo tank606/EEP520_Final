@@ -27,7 +27,7 @@
         },
         {
             "definition": "defs/key2.json",
-            "style": { "fill": "yellow", "stroke": "black" },
+            "style": { "fill": "blue", "stroke": "black" },
             "position": {
                 "x": 265, 
                 "y": 128, 
@@ -65,14 +65,14 @@
             "definition": "defs/knight.json",
             "style": { "fill": "orange", "stroke": "black" },
             "position": {
-                "x": 100, 
-                "y": 130, 
+                "x": -370, 
+                "y": 260, 
                 "theta": 0
             }
         },
         {
             "definition": "defs/bumper.json",
-            "style": { "fill": "red", "stroke": "none" },
+            "style": { "fill": "brown", "stroke": "none" },
             "position": {
                 "x": -225, 
                 "y": -225, 
@@ -81,7 +81,7 @@
         },
         {
             "definition": "defs/bumper.json",
-            "style": { "fill": "red", "stroke": "none" },
+            "style": { "fill": "brown", "stroke": "none" },
             "position": {
                 "x": -60, 
                 "y": -225, 
@@ -100,19 +100,19 @@
 
         {
             "definition": "defs/bumper.json",
-            "style": { "fill": "red", "stroke": "none" },
+            "style": { "fill": "brown", "stroke": "none" },
             "position": {
                 "x": -65, 
-                "y": 55, 
+                "y": 58, 
                 "theta": 0
             }
         },
         {
             "definition": "defs/bumper.json",
-            "style": { "fill": "red", "stroke": "none" },
+            "style": { "fill": "brown", "stroke": "none" },
             "position": {
                 "x": 100, 
-                "y": 55, 
+                "y": 58, 
                 "theta": 0
             }
         },
@@ -121,7 +121,7 @@
             "style": { "fill": "lightgreen", "stroke": "black" },
             "position": {
                 "x": 10, 
-                "y": 55, 
+                "y": 58, 
                 "theta": 0
             }
         },
@@ -131,10 +131,19 @@
 
         {
             "definition": "defs/guard.json",
-            "style": { "fill": "blue", "stroke": "black" },
+            "style": { "fill": "lightgreen", "stroke": "black" },
             "position": {
                 "x": 0, 
                 "y": 270, 
+                "theta": 3.14
+            }
+        },
+        {
+            "definition": "defs/guard.json",
+            "style": { "fill": "lightgreen", "stroke": "black" },
+            "position": {
+                "x": 280, 
+                "y": -270, 
                 "theta": 3.14
             }
         },
@@ -147,7 +156,7 @@
 
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": 230, 
                 "y": 160, 
@@ -156,7 +165,7 @@
         },
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": 160, 
                 "y": 210, 
@@ -165,7 +174,7 @@
         },
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": -20, 
                 "y": 90, 
@@ -174,7 +183,7 @@
         },
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": 170, 
                 "y": 130, 
@@ -183,7 +192,7 @@
         }, 
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": 40, 
                 "y": 210, 
@@ -192,7 +201,7 @@
         },
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": -20, 
                 "y": 160, 
@@ -201,7 +210,7 @@
         },
         {
             "definition": "defs/trap.json",
-            "style": { "fill": "brown", "stroke": "black" },
+            "style": { "fill": "purple", "stroke": "black" },
             "position": {
                 "x": -90, 
                 "y": 210, 
@@ -283,7 +292,7 @@
         
 
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -400, "y": -150 },
                 { "x": -400,  "y": -160 },
@@ -292,7 +301,7 @@
             ]
         },
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -400, "y": 10 },
                 { "x": -400,  "y": 20 },
@@ -301,7 +310,7 @@
             ]
         },
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -400, "y": 180 },
                 { "x": -400,  "y": 170 },
@@ -312,7 +321,7 @@
 
 
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -260, "y": 260 },
                 { "x": -260,  "y": 250 },
@@ -321,7 +330,7 @@
             ]
         },
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -260, "y": 100 },
                 { "x": -260,  "y": 90 },
@@ -330,7 +339,7 @@
             ]
         },
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": -260, "y": -60 },
                 { "x": -260,  "y": -70 },
@@ -343,7 +352,7 @@
 
 
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": 260, "y": 230 },
                 { "x": 260,  "y": 290 },
@@ -353,7 +362,7 @@
         },
 
         {
-            "style": { "fill": "blue", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": 40, "y": -30 },
                 { "x": 80,  "y": -30 },
@@ -362,7 +371,7 @@
             ]
         },
         {
-            "style": { "fill": "blue", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": 110, "y": -30 },
                 { "x": 140,  "y": -30 },
@@ -373,7 +382,7 @@
 
 
         {
-            "style": { "fill": "blue", "stroke": "none" },
+            "style": { "fill": "black", "stroke": "none" },
             "shape": [
                 { "x": 90, "y": 20 },
                 { "x": 130,  "y": 20 },
@@ -503,7 +512,7 @@
             ]
         },
         {
-            "style": { "fill": "lightgreen", "stroke": "none" },
+            "style": { "fill": "gray", "stroke": "none" },
             "shape": [
                 { "x": 320, "y": 300 },
                 { "x": 320,  "y": 290 },

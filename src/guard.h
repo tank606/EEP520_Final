@@ -33,7 +33,7 @@ namespace {
     class Rotating : public State, public AgentInterface {
         public:
         void entry(const Event& e) { 
-            rate = rand() % 2 == 0 ? 2 : -2;  //Randomly select left and right
+            rate = rand() % 2 == 0 ? 1,5 : -1.5;  //Randomly select left and right
         }
         void during() {
             track_velocity(0, rate);

@@ -3,8 +3,8 @@
   "type": "static",
   "description": "Don't run into traps, will be teleported back to the beginning",
   "shape": [
-      { "x": -10, "y": -10 },
-      { "x": -10, "y": 10 },
+      { "x": -10, "y": -5 },
+      { "x": -10, "y": 5 },
       { "x": 10, "y": 0 }
   ],
   "friction": {

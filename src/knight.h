@@ -33,7 +33,8 @@ class KnightController : public Process, public AgentInterface {
 
         //win: Back to the starting point after saving the princess
         watch("win", [this](Event e) {
-            teleport(-360, 270, 0);
+            teleport(-370, 270, 0);
+            label("Win", 0, 0);
         });
 
         prevent_rotation(); //prevent rotation during movement

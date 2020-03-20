@@ -3,13 +3,26 @@
     "type": "dynamic",
     "description": "The castle guard, and once be touched, you will return to the starting point.",
     "shape": [
-        { "x": -10, "y": 10 },
-        { "x": 10, "y": 10 },
-        { "x": 10, "y": -10 },
-        { "x": -10, "y": -10 }
+      { "x": -10, "y": 10 },
+      { "x": 10, "y": 10 },
+      { "x": 10, "y": 2 },
+      { "x": 12, "y": 2 },
+      { "x": 12, "y": 6 },
+      { "x": 16, "y": 6 },
+      { "x": 16, "y": 4 },
+      { "x": 14, "y": 4 },
+      { "x": 14, "y": -4},
+      { "x": 16, "y": -4 },
+      { "x": 16, "y": -6 },
+      { "x": 12, "y": -6 },
+      { "x": 12, "y": -2 },
+      { "x": 10, "y": -2 },
+      { "x": 10, "y": -10 },
+      { "x": -10, "y": -10 },
+      { "x": -9, "y": 0 }
     ],
     "friction": {
-      "collision": 5,
+      "collision": 1,
       "linear": 40,
       "rotational": 600
     },
@@ -18,6 +31,16 @@
         "type": "range",
         "location": { "x": 8, "y": 0 },
         "direction": 0
+      },
+      {
+        "type": "range",
+        "location": { "x": 8, "y": 8 },
+        "direction": 1.57
+      },
+      {
+        "type": "range",
+        "location": { "x": 8, "y": -8 },
+        "direction": -1.57
       },
       {
         "type": "range",
