@@ -94,6 +94,6 @@ Thanks to Professor Eric Klavins, Rajendra Hathwar, and Victor Cannestro for you
 
 ## Game rendering
 # Win
-![Game image](image/win.PNG)
+![Game image](image/win.png)
 # Fail
-![Game image](image/Fail.PNG)
+![Game image](image/Fail.png)
